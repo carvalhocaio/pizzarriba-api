@@ -57,7 +57,7 @@ WSGI_APPLICATION = "setup.wsgi.application"
 DATABASES = {
     "default": config(
         "DATABASE_URL",
-        default="sqlite3:///" + str(BASE_DIR / "db.sqlite3"),
+        default="sqlite:///" + str(BASE_DIR / "db.sqlite3"),
         cast=db_url,
     )
 }
@@ -95,6 +95,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
+MEDIA_ROOT = str(BASE_DIR / "images")
+MEDIA_URL = "/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

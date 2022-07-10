@@ -9,6 +9,8 @@ django = "*"
 djangorestframework = "*"
 dj-database-url = "*"
 psycopg2 = "*"
+dj-static = "*"
+gunicorn = "*"
 
 [dev-packages]
 ipython = "*"
