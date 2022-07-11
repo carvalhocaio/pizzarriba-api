@@ -11,7 +11,7 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="127.0.0.1", cast=Csv())
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -19,6 +19,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 ]
+
+LOCAL_APPS = ["pizzarriba"]
+
+THIRDS_APPS = ["rest_framework"]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRDS_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
