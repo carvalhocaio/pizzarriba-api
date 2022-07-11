@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from pizzarriba.models import Dish
+from pizzarriba.serializers import DishSerializer
 
-# Create your views here.
+
+class DishView(viewsets.ModelViewSet):
+    queryset = Dish.objects.all()
+    serializer_class = DishSerializer
