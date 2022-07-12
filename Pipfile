@@ -13,6 +13,8 @@ dj-static = "*"
 gunicorn = "*"
 pillow = "*"
 django-cors-headers = "*"
+django-storages = "*"
+boto3 = "*"
 
 [dev-packages]
 ipython = "*"

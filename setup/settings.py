@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from decouple import config, Csv
 from dj_database_url import parse as db_url
@@ -115,3 +116,17 @@ MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# AWS
+# https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html
+
+if (
+    "AWS_S3_ACCESS_KEY_ID" in os.environ
+    and "AWS_SECRET_ACCESS_KEY" in os.environ
+    and "AWS_STORAGE_BUCKET_NAME" in os.environ
+):
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    AWS_S3_ACCESS_KEY_ID = config("AWS_S3_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
