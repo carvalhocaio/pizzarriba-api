@@ -12,6 +12,7 @@ psycopg2 = "*"
 dj-static = "*"
 gunicorn = "*"
 pillow = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 ipython = "*"

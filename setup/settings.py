@@ -22,15 +22,16 @@ DJANGO_APPS = [
 
 LOCAL_APPS = ["pizzarriba"]
 
-THIRDS_APPS = ["rest_framework"]
+THIRDS_APPS = ["rest_framework", "corsheaders"]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRDS_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -96,6 +97,10 @@ TIME_ZONE = "America/Sao_Paulo"
 USE_I18N = True
 USE_TZ = True
 
+# CORS
+# https://pypi.org/project/django-cors-headers/
+
+CORS_ALLOWED_ORIGINS = config("CORS_ALLOWED_ORIGINS", default=None, cast=Csv())
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
